@@ -3,7 +3,7 @@ package tests_test
 import (
 	"testing"
 
-	"gitlab.com/fino/data-service-validator/tester/pkg/tests"
+	tests "github.com/fino-digital/json-rule-engine"
 )
 
 func TestObjectTestUnsupportedField(t *testing.T) {

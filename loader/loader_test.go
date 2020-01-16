@@ -3,7 +3,7 @@ package loader_test
 import (
 	"testing"
 
-	"gitlab.com/fino/data-service-validator/tester/pkg/tests/loader"
+	"github.com/fino-digital/json-rule-engine/loader"
 )
 
 func TestLoadFromFile(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	tests "github.com/fino-digital/json-rule-engine"
 	"github.com/fino-digital/qjson"
-	"gitlab.com/fino/data-service-validator/tester/pkg/tests"
 )
 
 func LoadFromFile(path string) (tests.Test, error) {
