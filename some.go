@@ -28,6 +28,10 @@ func (at *someTest) Run(input interface{}) error {
 		return fmt.Errorf("input (%#v %v) isn't an array", input, reflect.TypeOf(input))
 	}
 
+	if len(castedArray) == 0 {
+		return fmt.Errorf("input (%#v %v) is empty", input, reflect.TypeOf(input))
+	}
+
 	succeeded := false
 	var errs []error
 

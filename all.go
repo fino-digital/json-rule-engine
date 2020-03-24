@@ -39,6 +39,10 @@ func (at *allTest) Run(input interface{}) error {
 		return fmt.Errorf("input (%#v %v) isn't an array", input, reflect.TypeOf(input))
 	}
 
+	if len(castedArray) == 0 {
+		return fmt.Errorf("input (%#v %v) is empty", input, reflect.TypeOf(input))
+	}
+
 	var errs []error
 
 	errs = at.test.runMetaTests(castedArray)

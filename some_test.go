@@ -73,3 +73,16 @@ func TestSomeTestCorrectInput(t *testing.T) {
 		t.Error("should not have failed when correct input was passed: ", err)
 	}
 }
+
+func TestSomeTestEmptyInput(t *testing.T) {
+	test, err := tests.NewSomeTest(map[string]interface{}{"test": 1., "woop": "asd"})
+	if err != nil {
+		t.Error("failed to create test", err)
+		return
+	}
+
+	err = test.Run([]interface{}{})
+	if err == nil {
+		t.Error("should have failed when empty input was passed: ", err)
+	}
+}

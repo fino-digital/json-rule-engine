@@ -30,9 +30,13 @@ type containsTest struct {
 }
 
 func (ct *containsTest) Run(input interface{}) error {
-	_, ok := castArray(input)
+	inputArray, ok := castArray(input)
 	if !ok {
 		return fmt.Errorf("input (%#v %v) isn't an array", input, reflect.TypeOf(input))
+	}
+
+	if len(inputArray) == 0 {
+		return fmt.Errorf("input (%#v %v) is empty", input, reflect.TypeOf(input))
 	}
 
 	var errs []error
@@ -72,9 +76,13 @@ type containsSomeTest struct {
 }
 
 func (ct *containsSomeTest) Run(input interface{}) error {
-	_, ok := castArray(input)
+	inputArray, ok := castArray(input)
 	if !ok {
 		return fmt.Errorf("input (%#v %v) isn't an array", input, reflect.TypeOf(input))
+	}
+
+	if len(inputArray) == 0 {
+		return fmt.Errorf("input (%#v %v) is empty", input, reflect.TypeOf(input))
 	}
 
 	var errs []error
@@ -114,9 +122,13 @@ type containsNoneTest struct {
 }
 
 func (ct *containsNoneTest) Run(input interface{}) error {
-	_, ok := castArray(input)
+	inputArray, ok := castArray(input)
 	if !ok {
 		return fmt.Errorf("input (%#v %v) isn't an array", input, reflect.TypeOf(input))
+	}
+
+	if len(inputArray) == 0 {
+		return nil
 	}
 
 	var errs []error

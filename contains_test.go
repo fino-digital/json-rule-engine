@@ -68,6 +68,19 @@ func TestContainsTestCorrectInput(t *testing.T) {
 	}
 }
 
+func TestContainsTestEmptyInput(t *testing.T) {
+	test, err := tests.NewContainsTest([]interface{}{1., "asd"})
+	if err != nil {
+		t.Error("failed to create test", err)
+		return
+	}
+
+	err = test.Run([]interface{}{})
+	if err == nil {
+		t.Error("should have failed when empty input was passed: ", err)
+	}
+}
+
 func TestContainsSomeTestWrongExpectedType(t *testing.T) {
 	_, err := tests.NewContainsSomeTest(map[string]interface{}{"hey": 1.})
 
@@ -130,6 +143,19 @@ func TestContainsSomeTestCorrectInput(t *testing.T) {
 	}
 }
 
+func TestContainsSomeTestEmptyInput(t *testing.T) {
+	test, err := tests.NewContainsSomeTest([]interface{}{1., "asd"})
+	if err != nil {
+		t.Error("failed to create test", err)
+		return
+	}
+
+	err = test.Run([]interface{}{})
+	if err == nil {
+		t.Error("should have failed when empty input was passed: ", err)
+	}
+}
+
 func TestContainsNoneTestWrongExpectedType(t *testing.T) {
 	_, err := tests.NewContainsNoneTest(map[string]interface{}{"hey": 1.})
 
@@ -189,5 +215,18 @@ func TestContainsNoneTestCorrectInput(t *testing.T) {
 	})
 	if err != nil {
 		t.Error("should not have failed when correct input was passed: ", err)
+	}
+}
+
+func TestContainsNoneTestEmptyInput(t *testing.T) {
+	test, err := tests.NewContainsNoneTest([]interface{}{1., "asd"})
+	if err != nil {
+		t.Error("failed to create test", err)
+		return
+	}
+
+	err = test.Run([]interface{}{})
+	if err != nil {
+		t.Error("should not have failed when empty input was passed: ", err)
 	}
 }
