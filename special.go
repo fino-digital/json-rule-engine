@@ -25,6 +25,10 @@ func NewSpecialTest(keyword string, input interface{}) (Test, error) {
 		return NewContainsNoneTest(input)
 	case "$startsWith":
 		return NewStartsWithTest(input)
+	case "$startsWithIgnoreCase":
+		return NewStartsWithInsensitiveTest(input)
+	case "$ignoreCase":
+		return NewCaseInsensitiveStringTest(input)
 	}
 
 	if number, ok := castNumber(input); ok {
